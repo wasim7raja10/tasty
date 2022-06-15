@@ -2,6 +2,16 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Build and Run the project
+
+After Downloading and Extracting the Zip file,
+
+`cd path_of_project` in your terminal
+
+run `npm i` and `npm start`
+
+then finally go to the visible localhost link.
+
 ## Available Scripts
 
 In the project directory, you can run:
