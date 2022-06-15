@@ -11,7 +11,7 @@ import Skeleton from "./components/Skeleton";
 const URL = "https://tasty.p.rapidapi.com/recipes/list";
 
 const HEADERS = {
-  "X-RapidAPI-Key": "b37aaa05b0mshfcaf1f9adb064c1p10d43cjsncac1f5e77fcf",
+  "X-RapidAPI-Key": "832a9176d5msh1b0ad185cdcb45ap179069jsncc43bf056f0c",
   "X-RapidAPI-Host": "tasty.p.rapidapi.com",
 };
 
