@@ -11,8 +11,8 @@ import Skeleton from "./components/Skeleton";
 const URL = "https://tasty.p.rapidapi.com/recipes/list";
 
 const HEADERS = {
-  "X-RapidAPI-Key": "b37aaa05b0mshfcaf1f9adb064c1p10d43cjsncac1f5e77fcf",
-  "X-RapidAPI-Host": "tasty.p.rapidapi.com",
+  "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
+  "X-RapidAPI-Host": process.env.REACT_APP_API_HOST,
 };
 
 const fetchRecipes = async (input, page) =>
@@ -42,6 +42,26 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setRefreshed(true);
+    refetch();
+  };
+
+  const handleNextBtn = () => {
+    setRefreshed(true);
+    setPage((old) => old + 1);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    refetch();
+  };
+
+  const handlePrevBtn = () => {
+    setRefreshed(true);
+    setPage((old) => Math.max(old - 1, 0));
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     refetch();
   };
   return (
@@ -100,34 +120,14 @@ function App() {
             <div className=" flex justify-between sm:justify-center text-2xl space-x-4 ">
               <button
                 className=" p-2 border hover:bg-red-400 hover:text-white disabled:bg-gray-300"
-                onClick={() => {
-                  setRefreshed(true);
-                  setPage((old) => Math.max(old - 1, 0));
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                    /* you can also use 'auto' behaviour
-                       in place of 'smooth' */
-                  });
-                  refetch();
-                }}
+                onClick={handlePrevBtn}
                 disabled={page === 0}
               >
                 <MdKeyboardArrowLeft />
               </button>{" "}
               <button
                 className=" p-2 border hover:bg-red-400 hover:text-white disabled:bg-gray-300"
-                onClick={() => {
-                  setRefreshed(true);
-                  setPage((old) => old + 1);
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "smooth",
-                    /* you can also use 'auto' behaviour
-                       in place of 'smooth' */
-                  });
-                  refetch();
-                }}
+                onClick={handleNextBtn}
                 disabled={page * 18 + 17 >= data?.data.count}
               >
                 <MdKeyboardArrowRight />
