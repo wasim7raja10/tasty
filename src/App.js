@@ -11,8 +11,8 @@ import Skeleton from "./components/Skeleton";
 const URL = "https://tasty.p.rapidapi.com/recipes/list";
 
 const HEADERS = {
-  "X-RapidAPI-Key": process.env.REACT_APP_API_KEY,
-  "X-RapidAPI-Host": process.env.REACT_APP_API_HOST,
+  "X-RapidAPI-Key": "b37aaa05b0mshfcaf1f9adb064c1p10d43cjsncac1f5e77fcf",
+  "X-RapidAPI-Host": "tasty.p.rapidapi.com",
 };
 
 const fetchRecipes = async (input, page) =>
