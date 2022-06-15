@@ -77,7 +77,7 @@ function App() {
               onChange={handleInput}
             />
             <button className="border border-red-500 p-2 hover:bg-red-400 hover:text-white rounded-r-sm">
-              Submit
+              Search
             </button>
           </div>
         </form>
